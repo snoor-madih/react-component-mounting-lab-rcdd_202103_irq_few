@@ -12,12 +12,25 @@ class App extends Component {
 
   //Your code here:
 
+ componentDidMount() {
+    this.handleAddTimer()
+  }
 
+  render() {
+    console.log(this.state.timerIDs);
+    return (
+      <div className="App">
+        <header>
+          <h1>MultiTimer</h1>
+          <Controls updateIntervalSetting={this.updateIntervalSetting} updateInterval={this.state.updateInterval} handleAddTimer={this.handleAddTimer}/>
+        </header>
+        <div className="TimerGrid">
+          {this.renderTimers()}
+        </div>
 
-
-
-
-
+      </div>
+    );
+  }
 
 
   // No need to modify anything in render or the class methods below
